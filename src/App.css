@@ -1,38 +1,202 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #0c0f14;
+  color: #ffffff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.navbar {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  padding: 15px 4%;
+  background: rgba(12, 15, 20, 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.logo span {
+  color: #00f0ff;
+}
+
+.nav-links span {
+  margin: 0 15px;
+  cursor: pointer;
+  color: #bbbbbb;
+  font-weight: 500;
+}
+
+.nav-links span:hover, .nav-links .active-link {
+  color: #00f0ff;
+}
+
+.search-bar {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 15px;
+  border-radius: 20px;
   color: white;
+  width: 200px;
+  outline: none;
 }
 
-.App-link {
-  color: #61dafb;
+.hero-banner {
+  height: 40vh;
+  background: linear-gradient(rgba(12, 15, 20, 0.4), #0c0f14), url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 0 6%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero-content {
+  max-width: 600px;
 }
+
+.trending-tag {
+  background: #ff0055;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.hero-content h1 {
+  font-size: 38px;
+  margin: 10px 0;
+}
+
+.hero-content p {
+  color: #cccccc;
+  font-size: 14px;
+}
+
+.hero-buttons button {
+  padding: 10px 20px;
+  margin-right: 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-play { background-color: #00f0ff; color: #000; }
+.btn-info { background-color: rgba(255, 255, 255, 0.2); color: white; }
+
+.main-content {
+  padding: 20px 4%;
+  flex: 1;
+}
+
+.category-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.category-pill {
+  background: #1a1f29;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cccccc;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.category-pill:hover, .category-pill.active {
+  background: #00f0ff;
+  color: #000000;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.movie-card {
+  background: #141822;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-image-wrap {
+  position: relative;
+  padding-top: 56.25%;
+  background: #202533;
+}
+
+.card-image-wrap img {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+.duration-tag {
+  position: absolute;
+  bottom: 8px; right: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2px 6px;
+  font-size: 11px;
+  border-radius: 4px;
+}
+
+.card-info { padding: 15px; }
+.card-info h3 { margin: 0 0 10px 0; font-size: 16px; }
+.card-meta { display: flex; gap: 6px; align-items: center; font-size: 11px; }
+
+.badge-lang, .badge-type {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #00f0ff;
+}
+
+.rating { margin-left: auto; color: #ffcc00; font-weight: bold; }
+.footer { text-align: center; padding: 20px; background: #080a0e; font-size: 12px; color: #666666; }
+
+/* Auth Elements */
+.auth-nav-section { display: flex; align-items: center; }
+.btn-auth-login { background: #00f0ff; color: #000; border: none; padding: 8px 20px; border-radius: 4px; font-weight: bold; cursor: pointer; }
+.user-profile-menu { display: flex; align-items: center; gap: 15px; }
+.profile-name-tag { color: #00f0ff; cursor: pointer; font-weight: 600; }
+.btn-auth-logout { background: transparent; color: #ff0055; border: 1px solid #ff0055; padding: 6px 14px; border-radius: 4px; cursor: pointer; }
+
+.profile-selection-screen { background-color: #0c0f14; height: 100vh; display: flex; justify-content: center; align-items: center; }
+.profile-container { text-align: center; }
+.profile-grid { display: flex; gap: 30px; margin-top: 20px; }
+.profile-card-user { cursor: pointer; }
+
+.profile-avatar {
+  width: 100px; height: 100px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px; font-weight: bold; margin-bottom: 10px;
+}
+.avatar-blue { background-color: #007bff; }
+.avatar-green { background-color: #28a745; }
+.avatar-purple { background-color: #6f42c1; }
+
+.manage-profile-btn { background: transparent; border: 1px solid #666; color: #666; padding: 10px 24px; margin-top: 30px; cursor: pointer; }
+
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+.auth-modal { background: #141822; padding: 40px; border-radius: 12px; width: 300px; position: relative; text-align: center; }
+.close-modal { position: absolute; top: 15px; right: 15px; background: transparent; border: none; color: #666; font-size: 16px; cursor: pointer; }
+.google-auth-btn { width: 100%; background: white; color: black; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+.auth-divider { margin: 20px 0; color: #666; font-size: 12px; }
+.phone-auth-form input { width: 90%; padding: 10px; border-radius: 6px; border: 1px solid #2d3748; background: #0c0f14; color: white; margin-bottom: 15px; }
+.phone-submit-btn { width: 100%; background: #00f0ff; color: black; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; }
